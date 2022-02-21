@@ -6,6 +6,7 @@
         <!--permite que a página no mobile não esteja com zoom-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css">
         <title>JS Quiz - tipo: tema geral</title>
     </head>
     <body>
@@ -31,6 +32,8 @@
             </div>
 
         </div>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
         <script>
 
             let question = document.getElementById ('question');
@@ -169,7 +172,7 @@
                         event.removeEventListener ('click', registerClientAlternativeClick);
                         event.removeEventListener ('click', nextQuestion);
                         event.addEventListener ('click', function () {
-                        
+                            alertify.notify  ('Clique em "Voltar ao início" para jogar novamente', 'success', 5)
                         });
     
                 });
@@ -194,8 +197,8 @@
                     
                     }
 
-                    alert ('Sua pontuação: <br> ', questionStatus[1] + "<br>" + questionStatus[2]
-                        + "<br>" + questionStatus[3] + "<br>");
+                    alertify.alert ('Sua pontuação: <br> ', questionStatus[1] + "<br>" + questionStatus[2]
+                        + "<br>" + questionStatus[3] + "<br>").set('movable', true);
                 
                 }
                 
